@@ -1,243 +1,478 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Register TikTok Shop via my link and get $5 cash voucher instantly">
-    <meta name="keywords" content="TikTok Shop, register, cash voucher, $5, affiliate">
-    <title>Register TikTok Shop - Get $285 Instantly</title>
+    <meta name="description" content="Luxury watch lucky draw event, spend $200 to participate">
+    <meta name="keywords" content="watch draw, lucky wheel, LV, iPhone, red packet">
+    <title>Luxury Watch Lucky Draw</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8b0000 0%, #c00000 100%);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             padding: 20px;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #ffcc00, #ff9900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 5s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, #ffcc00, #ff9900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
         }
         
         .container {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1000px;
+            z-index: 2;
         }
         
-        h1 {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        
-        .fire {
-            color: #ff6b6b;
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        
-        p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: transform 0.3s;
-            margin: 10px 0;
-            cursor: pointer;
-        }
-        
-        .button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-        }
-        
-        .money {
-            font-size: 50px;
-            font-weight: bold;
-            color: #ffd700;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .small-text {
-            font-size: 14px;
-            color: #999;
-            margin-top: 20px;
-        }
-        
-        .steps {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            text-align: left;
-        }
-        
-        .step {
-            margin: 10px 0;
-            padding-left: 20px;
+        .wheel-container {
             position: relative;
-        }
-        
-        .step:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4caf50;
-            font-weight: bold;
-        }
-        
-        /* 弹窗样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
+            width: 400px;
+            height: 400px;
+            margin: 30px 0;
+            display: flex;
             justify-content: center;
             align-items: center;
         }
         
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            animation: modalOpen 0.3s ease-out;
+        .wheel {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #d4af37 0% 16.67%,
+                #c0c0c0 16.67% 33.33%,
+                #d4af37 33.33% 50%,
+                #c0c0c0 50% 66.67%,
+                #d4af37 66.67% 83.33%,
+                #c0c0c0 83.33% 100%
+            );
+            position: relative;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.7),
+                inset 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 5s cubic-bezier(0.17, 0.67, 0.17, 1);
+            transform: rotate(0deg);
+            border: 8px solid #d4af37;
         }
         
-        @keyframes modalOpen {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .wheel::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: #d4af37;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
         }
         
-        .modal-title {
-            font-size: 48px;
-            color: #ff4444;
-            margin-bottom: 20px;
+        .wheel::after {
+            content: 'START';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
             font-weight: bold;
+            font-size: 20px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+            z-index: 10;
         }
         
-        .modal-text {
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: bottom right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.7);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            line-height: 1.2;
+        }
+        
+        .segment-1 { transform: rotate(0deg) skewY(30deg); background: #d4af37; }
+        .segment-2 { transform: rotate(60deg) skewY(30deg); background: #c0c0c0; }
+        .segment-3 { transform: rotate(120deg) skewY(30deg); background: #d4af37; }
+        .segment-4 { transform: rotate(180deg) skewY(30deg); background: #c0c0c0; }
+        .segment-5 { transform: rotate(240deg) skewY(30deg); background: #d4af37; }
+        .segment-6 { transform: rotate(300deg) skewY(30deg); background: #c0c0c0; }
+        
+        .segment-1 span { color: #000; }
+        .segment-2 span { color: #000; }
+        .segment-3 span { color: #000; }
+        .segment-4 span { color: #000; }
+        .segment-5 span { color: #000; }
+        .segment-6 span { color: #000; }
+        
+        .prize-text {
             font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
+            margin: 15px 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            min-height: 40px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ffcc00, #ff9900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+        }
+        
+        .button:active {
+            transform: translateY(1px);
+        }
+        
+        .button i {
+            margin-right: 10px;
+            font-size: 24px;
+            animation: spin 1s infinite linear;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .instructions h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
             line-height: 1.5;
         }
         
-        .modal-button {
-            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
-            color: white;
-            padding: 15px 40px;
+        .instructions li:before {
+            content: "•";
+            color: #ffcc00;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #aaa;
+            font-size: 14px;
+            z-index: 2;
+        }
+        
+        .win-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: #000;
+            padding: 30px 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.7);
+            z-index: 100;
+            display: none;
+            text-align: center;
+            max-width: 80%;
+        }
+        
+        .win-message h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .win-message p {
+            font-size: 28px;
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+        
+        .win-message .close {
+            background: #000;
+            color: #ffcc00;
             border: none;
+            padding: 10px 30px;
             border-radius: 50px;
             font-size: 18px;
-            font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s;
+            margin-top: 20px;
+            font-weight: bold;
         }
         
-        .modal-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.5);
+        .win-message .close:hover {
+            background: #333;
         }
         
-        .laughing-emoji {
-            font-size: 80px;
-            margin-bottom: 20px;
-            animation: laugh 1s infinite;
-        }
-        
-        @keyframes laugh {
-            0%, 100% {
-                transform: translateY(0);
+        @media (max-width: 600px) {
+            .wheel-container {
+                width: 300px;
+                height: 300px;
             }
-            50% {
-                transform: translateY(-10px);
+            
+            .wheel {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .button {
+                font-size: 18px;
+                padding: 12px 30px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="fire">🔥</div>
-        <h1>Register TikTok Shop via My Link</h1>
-        <p>Get <span class="money">$285 Cash Voucher</span> instantly when you register as a new seller.</p>
-        <p>No lottery, no waiting — sent to your PayPal within 24 hours.</p>
-        
-        <!-- 点击按钮弹出自定义弹窗 -->
-        <a class="button" onclick="openModal()">👉 Claim $285 Now</a>
-        
-        <div class="steps">
-            <div class="step">Click the button above</div>
-            <div class="step">Register TikTok Shop (new seller only)</div>
-            <div class="step">Send me your PayPal email</div>
-            <div class="step">Get $285 within 24h</div>
-        </div>
-        
-        <p class="small-text">Valid for new TikTok Shop sellers only. Terms apply.</p>
+    <div class="header">
+        <h1>Luxury Watch Lucky Draw</h1>
+        <p>All watches are priced at <span class="highlight">$200</span> in this event</p>
+        <p>Spend <span class="highlight">$200</span> to participate in the lucky draw</p>
     </div>
     
-    <!-- 弹窗 -->
-    <div class="modal" id="myModal">
-        <div class="modal-content">
-            <div class="laughing-emoji">Contact me</div>
-            <div class="modal-title">Whatchs APP</div>
-            <div class="modal-text">+44 7426151269</div>
-            <button class="modal-button" onclick="closeModal()">Okay, I got it</button>
+    <div class="container">
+        <div class="prize-text" id="prizeText">Click the button to start spinning</div>
+        
+        <div class="wheel-container">
+            <div class="wheel" id="wheel">
+                <div class="wheel-segment segment-1">
+                    <span>$8888 Lucky<br>Red Packet</span>
+                </div>
+                <div class="wheel-segment segment-2">
+                    <span>LV BELLA<br>Handbag (Women's)</span>
+                </div>
+                <div class="wheel-segment segment-3">
+                    <span>30g Solid Gold<br>Bracelet</span>
+                </div>
+                <div class="wheel-segment segment-4">
+                    <span>iPhone 17<br>Pro Max</span>
+                </div>
+                <div class="wheel-segment segment-5">
+                    <span>LV Dimension<br>Drift Belt</span>
+                </div>
+                <div class="wheel-segment segment-6">
+                    <span>Lucky Prize:<br>Choose Any Watch</span>
+                </div>
+            </div>
         </div>
+        
+        <button class="button" id="spinButton">
+            <span>🔄</span> Spin Now
+        </button>
+        
+        <div class="instructions">
+            <h3>Rules</h3>
+            <ul>
+                <li>Only the first 20 customers who purchase watches are eligible to participate</li>
+                <li>Each person can purchase up to 3 orders and participate in the draw 3 times (exceeding is not eligible)</li>
+                <li>All prizes can be redeemed as cash in red packet form</li>
+                <li>Please contact customer service within 24 hours to claim your prize after winning</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2026 Luxury Watch Group | This company reserves the final interpretation rights for this event</p>
+    </div>
+    
+    <div class="win-message" id="winMessage">
+        <h2>Congratulations, You Won!</h2>
+        <p id="winPrize">You won: $8888 Lucky Red Packet</p>
+        <p>Please contact customer service within 24 hours to claim your prize</p>
+        <button class="close" id="closeMessage">Got it</button>
     </div>
     
     <script>
-        // 打开弹窗
-        function openModal() {
-            document.getElementById('myModal').style.display = 'flex';
-        }
-        
-        // 关闭弹窗
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-        
-        // 点击弹窗外部关闭
-        window.onclick = function(event) {
-            var modal = document.getElementById('myModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
+        document.addEventListener('DOMContentLoaded', function() {
+            const wheel = document.getElementById('wheel');
+            const spinButton = document.getElementById('spinButton');
+            const prizeText = document.getElementById('prizeText');
+            const winMessage = document.getElementById('winMessage');
+            const winPrize = document.getElementById('winPrize');
+            const closeMessage = document.getElementById('closeMessage');
+            
+            let isSpinning = false;
+            let currentRotation = 0;
+            
+            // Prize list
+            const prizes = [
+                "$8888 Lucky Red Packet",
+                "LV BELLA Handbag (Women's)",
+                "30g Solid Gold Bracelet",
+                "iPhone 17 Pro Max",
+                "LV Dimension Drift Belt",
+                "Lucky Prize: Choose Any Watch from Our Store"
+            ];
+            
+            // Prize corresponding angles
+            const prizeAngles = [
+                0,     // $8888 Red Packet
+                60,    // LV Handbag
+                120,   // Gold Bracelet
+                180,   // iPhone
+                240,   // LV Belt
+                300    // Lucky Prize
+            ];
+            
+            // Random prize selection
+            function getRandomPrize() {
+                return Math.floor(Math.random() * prizes.length);
             }
-        }
+            
+            // Calculate rotation angle
+            function getRotationForPrize(prizeIndex) {
+                // 0 degrees corresponds to $8888
+                // Each prize is 60 degrees
+                // Prize pointer is at 12 o'clock direction
+                return 360 - prizeAngles[prizeIndex] - 30;
+            }
+            
+            // Spin the wheel
+            function spinWheel() {
+                if (isSpinning) return;
+                
+                isSpinning = true;
+                spinButton.disabled = true;
+                prizeText.textContent = "Spinning...";
+                
+                // Randomly select a prize
+                const prizeIndex = getRandomPrize();
+                const rotation = getRotationForPrize(prizeIndex);
+                
+                // Add random spins (3-5 rounds)
+                const spins = 3 + Math.floor(Math.random() * 3);
+                const totalRotation = spins * 360 + rotation;
+                
+                // Apply rotation
+                wheel.style.transition = 'transform 5s cubic-bezier(0.17, 0.67, 0.17, 1)';
+                wheel.style.transform = `rotate(${totalRotation}deg)`;
+                
+                // Update current rotation angle
+                currentRotation = totalRotation;
+                
+                // Stop after 5 seconds
+                setTimeout(() => {
+                    isSpinning = false;
+                    spinButton.disabled = false;
+                    
+                    // Display winning result
+                    prizeText.textContent = `Congratulations! You won: ${prizes[prizeIndex]}`;
+                    
+                    // Show winning popup
+                    winPrize.textContent = `You won: ${prizes[prizeIndex]}`;
+                    winMessage.style.display = 'block';
+                }, 5000);
+            }
+            
+            // Close winning popup
+            function closeWinMessage() {
+                winMessage.style.display = 'none';
+                prizeText.textContent = "Click the button to start spinning";
+            }
+            
+            // Event listeners
+            spinButton.addEventListener('click', spinWheel);
+            closeMessage.addEventListener('click', closeWinMessage);
+        });
     </script>
 </body>
 </html>
-
