@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Register TikTok Shop via my link and get $5 cash voucher instantly">
     <meta name="keywords" content="TikTok Shop, register, cash voucher, $5, affiliate">
-    <title>Register TikTok Shop - Get $5 Instantly</title>
+    <title>Register TikTok Shop - Get $285 Instantly</title>
     <style>
         * {
             margin: 0;
@@ -30,6 +30,7 @@
             max-width: 600px;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            z-index: 1;
         }
         
         h1 {
@@ -61,10 +62,13 @@
             font-size: 18px;
             font-weight: bold;
             transition: transform 0.3s;
+            margin: 10px 0;
+            cursor: pointer;
         }
         
         .button:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
         }
         
         .money {
@@ -72,6 +76,7 @@
             font-weight: bold;
             color: #ffd700;
             margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         
         .small-text {
@@ -79,16 +84,159 @@
             color: #999;
             margin-top: 20px;
         }
+        
+        .steps {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .step {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .step:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: modalOpen 0.3s ease-out;
+        }
+        
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .modal-title {
+            font-size: 48px;
+            color: #ff4444;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .modal-text {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .modal-button {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .modal-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.5);
+        }
+        
+        .laughing-emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: laugh 1s infinite;
+        }
+        
+        @keyframes laugh {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="fire">🔥</div>
         <h1>Register TikTok Shop via My Link</h1>
-        <p>Get <span class="money">$398 Cash Voucher</span> instantly when you register as a new seller.</p>
+        <p>Get <span class="money">$285 Cash Voucher</span> instantly when you register as a new seller.</p>
         <p>No lottery, no waiting — sent to your PayPal within 24 hours.</p>
-        <a href="https://seller.tiktok.com/settle?region=id" class="button">👉 Claim $398  Now</a>
+        
+        <!-- 点击按钮弹出自定义弹窗 -->
+        <a class="button" onclick="openModal()">👉 Claim $285 Now</a>
+        
+        <div class="steps">
+            <div class="step">Click the button above</div>
+            <div class="step">Register TikTok Shop (new seller only)</div>
+            <div class="step">Send me your PayPal email</div>
+            <div class="step">Get $285 within 24h</div>
+        </div>
+        
         <p class="small-text">Valid for new TikTok Shop sellers only. Terms apply.</p>
     </div>
+    
+    <!-- 弹窗 -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <div class="laughing-emoji">😂</div>
+            <div class="modal-title">HAHA!</div>
+            <div class="modal-text">我叫航子 傻鸟你被耍了！</div>
+            <button class="modal-button" onclick="closeModal()">OK, 我知道了</button>
+        </div>
+    </div>
+    
+    <script>
+        // 打开弹窗
+        function openModal() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+        
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+        
+        // 点击弹窗外部关闭
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
